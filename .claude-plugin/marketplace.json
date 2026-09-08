@@ -1,0 +1,16 @@
+{
+  "name": "lesh-marketplace",
+  "owner": {
+    "name": "Lesh Liao"
+  },
+  "metadata": {
+    "description": "Personal Claude Code plugins by Lesh Liao"
+  },
+  "plugins": [
+    {
+      "name": "lesh-common-plugin",
+      "source": "./plugins/lesh-common-plugin",
+      "description": "Personal skills, agents and MCP config"
+    }
+  ]
+}

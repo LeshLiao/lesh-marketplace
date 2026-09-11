@@ -2,12 +2,15 @@
 
 Personal Claude Code plugin by Lesh Liao. Bundles everyday skills, one agent, and two MCP servers (Heptabase, Context7).
 
-## Install
+## Install from Github
 
 ```bash
-claude plugin marketplace add ~/sourceCode/marketplace/lesh-marketplace
+claude plugin marketplace add LeshLiao/lesh-marketplace
 claude plugin install lesh-common-plugin@lesh-marketplace
 ```
+
+# After install:
+   /Users/yourname/.claude/plugins/marketplaces/lesh-marketplace
 
 Restart Claude Code afterwards. Plugins and skills load at session start.
 
@@ -20,6 +23,7 @@ Restart Claude Code afterwards. Plugins and skills load at session start.
 | `/lesh-common-plugin:git-commit-one-line` | Reads the git diff and commits with a concise one-line English message. |
 | `/lesh-common-plugin:git-commit-three-bullet-point` | Reads the git diff and commits with a three-bullet English message. |
 | `/lesh-common-plugin:note-to-heptabase <memo>` | Writes the memo as a Heptabase card, places it on the "Note" whiteboard, and tags it only if an existing tag clearly fits. |
+| `/lesh-common-plugin:taichung-weather-call-agent` | Manually runs the `taichung-weather` agent in a forked context. Slash-command only; the model never auto-invokes it. |
 
 ### Agent
 
@@ -45,7 +49,8 @@ lesh-common-plugin/
 ├── skills/
 │   ├── git-commit-one-line/SKILL.md
 │   ├── git-commit-three-bullet-point/SKILL.md
-│   └── note-to-heptabase/SKILL.md
+│   ├── note-to-heptabase/SKILL.md
+│   └── taichung-weather-call-agent/SKILL.md
 └── README.md
 ```
 
@@ -122,6 +127,7 @@ The git repository is the **marketplace root** (`~/sourceCode/marketplace/lesh-m
 
 ## Changelog
 
+- **1.3.0** (2026-09-11): added `taichung-weather-call-agent` skill (slash command that runs the `taichung-weather` agent).
 - **1.2.0** (2026-09-08): added Context7 MCP server.
 - **1.1.0** (2026-09-08): added `note-to-heptabase` skill.
 - **1.0.0** (2026-09-08): initial release with the two git-commit skills, `taichung-weather` agent, and Heptabase MCP config.

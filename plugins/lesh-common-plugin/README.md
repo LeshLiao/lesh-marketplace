@@ -1,6 +1,6 @@
 # lesh-common-plugin
 
-Personal Claude Code plugin by Lesh Liao. Bundles everyday skills, one agent, and two MCP servers (Heptabase, Context7).
+Personal Claude Code plugin by Lesh Liao. Bundles everyday skills, one agent, and three MCP servers (Heptabase, Context7, GitHub).
 
 ## Install from Github
 
@@ -38,13 +38,14 @@ Restart Claude Code afterwards. Plugins and skills load at session start.
   ```bash
   open -a "Microsoft Edge" "<auth url>"
   ```
+- **github**: `https://api.githubcopilot.com/mcp/` (HTTP). Official GitHub MCP server — repos, issues, PRs, code search, etc. On first use run `/mcp` and complete the GitHub OAuth login.
 
 ## Layout
 
 ```
 lesh-common-plugin/
 ├── .claude-plugin/plugin.json   # manifest (name, version, author)
-├── .mcp.json                    # heptabase + context7 MCP servers
+├── .mcp.json                    # heptabase + context7 + github MCP servers
 ├── agents/taichung-weather.md
 ├── skills/
 │   ├── git-commit-one-line/SKILL.md
@@ -127,6 +128,7 @@ The git repository is the **marketplace root** (`~/sourceCode/marketplace/lesh-m
 
 ## Changelog
 
+- **1.4.0** (2026-09-19): added GitHub MCP server (official remote server, OAuth).
 - **1.3.0** (2026-09-11): added `taichung-weather-call-agent` skill (slash command that runs the `taichung-weather` agent).
 - **1.2.0** (2026-09-08): added Context7 MCP server.
 - **1.1.0** (2026-09-08): added `note-to-heptabase` skill.

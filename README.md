@@ -1,3 +1,7 @@
+# lesh-marketplace
+
+Current version: **1.5.0**
+
 ## Install plugin
 
 ```bash

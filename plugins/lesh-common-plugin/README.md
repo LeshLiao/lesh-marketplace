@@ -20,6 +20,7 @@ Restart Claude Code afterwards. Plugins and skills load at session start.
 
 | Command | What it does |
 |---|---|
+| `/lesh-common-plugin:create-github-issue <problem>` | Investigates the problem in the codebase first (root cause + solution), then creates a concise GitHub issue. Asks which repo via popup menu if not specified. |
 | `/lesh-common-plugin:git-commit-one-line` | Reads the git diff and commits with a concise one-line English message. |
 | `/lesh-common-plugin:git-commit-three-bullet-point` | Reads the git diff and commits with a three-bullet English message. |
 | `/lesh-common-plugin:note-to-heptabase <memo>` | Writes the memo as a Heptabase card, places it on the "Note" whiteboard, and tags it only if an existing tag clearly fits. |
@@ -48,6 +49,7 @@ lesh-common-plugin/
 ├── .mcp.json                    # heptabase + context7 + github MCP servers
 ├── agents/taichung-weather.md
 ├── skills/
+│   ├── create-github-issue/SKILL.md
 │   ├── git-commit-one-line/SKILL.md
 │   ├── git-commit-three-bullet-point/SKILL.md
 │   ├── note-to-heptabase/SKILL.md
@@ -128,6 +130,7 @@ The git repository is the **marketplace root** (`~/sourceCode/marketplace/lesh-m
 
 ## Changelog
 
+- **1.5.0** (2026-09-20): added `create-github-issue` skill (investigate first, popup repo menu, concise issue via `gh`).
 - **1.4.0** (2026-09-19): added GitHub MCP server (official remote server, OAuth).
 - **1.3.0** (2026-09-11): added `taichung-weather-call-agent` skill (slash command that runs the `taichung-weather` agent).
 - **1.2.0** (2026-09-08): added Context7 MCP server.

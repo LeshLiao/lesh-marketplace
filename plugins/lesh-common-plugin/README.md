@@ -130,6 +130,7 @@ The git repository is the **marketplace root** (`~/sourceCode/marketplace/lesh-m
 
 ## Changelog
 
+- **1.5.1** (2026-09-23): `git-commit-one-line` and `git-commit-three-bullet-point` no longer add AI attribution (no `Co-Authored-By` trailer); commit messages stay clean.
 - **1.5.0** (2026-09-20): added `create-github-issue` skill (investigate first, popup repo menu, concise issue via `gh`).
 - **1.4.0** (2026-09-19): added GitHub MCP server (official remote server, OAuth).
 - **1.3.0** (2026-09-11): added `taichung-weather-call-agent` skill (slash command that runs the `taichung-weather` agent).

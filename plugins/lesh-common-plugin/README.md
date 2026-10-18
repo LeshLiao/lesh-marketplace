@@ -23,7 +23,7 @@ Restart Claude Code afterwards. Plugins and skills load at session start.
 | `/lesh-common-plugin:create-github-issue <problem>` | Investigates the problem in the codebase first (root cause + solution), then creates a concise GitHub issue. Asks which repo via popup menu if not specified. |
 | `/lesh-common-plugin:git-commit-one-line` | Reads the git diff and commits with a concise one-line English message. |
 | `/lesh-common-plugin:git-commit-three-bullet-point` | Reads the git diff and commits with a three-bullet English message. |
-| `/lesh-common-plugin:note-to-heptabase <memo>` | Writes the memo as a Heptabase card, places it on the "Note" whiteboard, and tags it only if an existing tag clearly fits. |
+| `/lesh-common-plugin:note-to-heptabase <memo>` | Writes the memo as a Heptabase card, places it on the "Note" whiteboard, applies every existing tag that fits, and embeds a relevant image (found online or supplied by the user) self-hosted in `LeshLiao/heptabase-assets` with a source caption. |
 | `/lesh-common-plugin:taichung-weather-call-agent` | Manually runs the `taichung-weather` agent in a forked context. Slash-command only; the model never auto-invokes it. |
 
 ### Agent
@@ -130,6 +130,7 @@ The git repository is the **marketplace root** (`~/sourceCode/marketplace/lesh-m
 
 ## Changelog
 
+- **1.6.0** (2026-10-18): `note-to-heptabase` now applies every matching existing tag, embeds images self-hosted in the `heptabase-assets` GitHub repo (so links never rot) with an image-source caption, and uploads images the user drags or pastes into Claude Code.
 - **1.5.1** (2026-09-23): `git-commit-one-line` and `git-commit-three-bullet-point` no longer add AI attribution (no `Co-Authored-By` trailer); commit messages stay clean.
 - **1.5.0** (2026-09-20): added `create-github-issue` skill (investigate first, popup repo menu, concise issue via `gh`).
 - **1.4.0** (2026-09-19): added GitHub MCP server (official remote server, OAuth).

@@ -1,6 +1,6 @@
 # lesh-marketplace
 
-Current version: **1.5.1**
+Current version: **1.6.0**
 
 ## Install plugin
 

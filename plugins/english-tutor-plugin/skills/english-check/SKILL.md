@@ -1,10 +1,11 @@
 ---
 name: english-check
-version: 1.0.0
+version: 1.1.0
 description: Check an English sentence for grammar errors, explain the fix, classify each error, and save it via the english-practice MCP server. Invoke with /english-tutor-plugin:english-check <sentence>.
 argument-hint: <English sentence to check>
 allowed-tools:
   - mcp__english-practice__list_error_types
+  - mcp__english-practice__get_recent_mistakes
   - mcp__english-practice__save_sentence
 ---
 
@@ -16,7 +17,7 @@ then reply in the fixed format below. Follow the steps in order. Do not skip ste
 
 ## Steps
 
-1. **Call `list_error_types` first.** You need the existing category names before classifying.
+1. **Call `list_error_types` and `get_recent_mistakes` first** (both, in parallel). You need the existing category names before classifying, and the recent mistakes (default limit 10) to detect repeated error types in step 5.
 
 2. **Check the sentence.** For each mistake record:
    - `error_snippet`: the exact wrong fragment copied from the original sentence.
@@ -49,7 +50,12 @@ then reply in the fixed format below. Follow the steps in order. Do not skip ste
 
    - If there are no errors, the 錯誤 section is a single line: `錯誤：無`.
    - After the block, add one short line: `已儲存（id <sentence_id>）`.
-   - Nothing else. No preamble, no extra tips.
+
+5. **Flag repeated mistakes.** For each error type used in step 2, count how many of the sentences returned by `get_recent_mistakes` in step 1 also contain that error type. If the count is 1 or more, append the error type's line in the 錯誤 section with `（最近第 N 次犯 <error_type> 錯誤）`, where N = that count + 1 (this sentence included). Do not mention error types that were not repeated.
+
+   Example: `- [tense] go → went（最近第 3 次犯 tense 錯誤）`
+
+   Nothing else after `已儲存`. No preamble, no extra tips.
 
 ## Edge cases
 

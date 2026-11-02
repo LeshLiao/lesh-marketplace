@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "english-practice": {
+      "type": "http",
+      "url": "http://44.228.11.180/mcp",
+      "headers": {
+        "X-API-Key": "${ENGLISH_PRACTICE_API_KEY}"
+      }
+    }
+  }
+}

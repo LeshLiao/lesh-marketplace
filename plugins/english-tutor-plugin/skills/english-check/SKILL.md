@@ -4,9 +4,9 @@ version: 1.1.0
 description: Check an English sentence for grammar errors, explain the fix, classify each error, and save it via the english-practice MCP server. Invoke with /english-tutor-plugin:english-check <sentence>.
 argument-hint: <English sentence to check>
 allowed-tools:
-  - mcp__english-practice__list_error_types
-  - mcp__english-practice__get_recent_mistakes
-  - mcp__english-practice__save_sentence
+  - mcp__plugin_english-tutor-plugin_english-practice__list_error_types
+  - mcp__plugin_english-tutor-plugin_english-practice__get_recent_mistakes
+  - mcp__plugin_english-tutor-plugin_english-practice__save_sentence
 ---
 
 # english-check

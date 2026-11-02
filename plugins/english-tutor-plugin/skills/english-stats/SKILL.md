@@ -4,8 +4,8 @@ version: 1.0.0
 description: Summarize which English error types the user makes most often, as a table with a one-line focus suggestion, using the english-practice MCP server. Invoke with /english-tutor-plugin:english-stats [period], e.g. "this week", "last 30 days", or nothing for all time.
 argument-hint: [period such as "this week" or "last 30 days"]
 allowed-tools:
-  - mcp__english-practice__get_error_stats
-  - mcp__english-practice__search_sentences
+  - mcp__plugin_english-tutor-plugin_english-practice__get_error_stats
+  - mcp__plugin_english-tutor-plugin_english-practice__search_sentences
 ---
 
 # english-stats

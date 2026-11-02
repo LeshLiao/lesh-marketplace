@@ -4,8 +4,8 @@ version: 1.0.0
 description: Review drill: pick a few of the user's past English mistakes from the english-practice MCP server, show only the original (wrong) sentences, let the user rewrite them, then grade each rewrite against the stored correction. Invoke with /english-tutor-plugin:english-review [error_type] [count].
 argument-hint: [error_type] [count, default 3]
 allowed-tools:
-  - mcp__english-practice__list_error_types
-  - mcp__english-practice__search_sentences
+  - mcp__plugin_english-tutor-plugin_english-practice__list_error_types
+  - mcp__plugin_english-tutor-plugin_english-practice__search_sentences
 ---
 
 # english-review

@@ -1,0 +1,8 @@
+{
+  "name": "english-tutor-plugin",
+  "version": "1.0.0",
+  "description": "Skills for the english-tutor project: check English sentences and record mistakes via the english-practice MCP server",
+  "author": {
+    "name": "Lesh Liao"
+  }
+}

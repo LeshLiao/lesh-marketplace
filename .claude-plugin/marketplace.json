@@ -11,6 +11,11 @@
       "name": "lesh-common-plugin",
       "source": "./plugins/lesh-common-plugin",
       "description": "Personal skills, agents and MCP config"
+    },
+    {
+      "name": "english-tutor-plugin",
+      "source": "./plugins/english-tutor-plugin",
+      "description": "Skills for the english-tutor project (needs the english-practice MCP server)"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "name": "english-tutor-plugin",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "English tutor for Claude Code: auto-check English prompts via a UserPromptSubmit hook, skills for manual check / stats / review, and the english-practice MCP server connection",
   "author": {
     "name": "Lesh Liao"

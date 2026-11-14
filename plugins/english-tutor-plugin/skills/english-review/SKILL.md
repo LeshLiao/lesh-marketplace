@@ -35,7 +35,7 @@ A two-turn drill. Turn 1 shows old wrong sentences; turn 2 grades the user's rew
 
 When the user replies with their rewrites (in the same conversation):
 
-5. **Compare each rewrite** with the stored `corrected_text` and `errors` of that sentence. A rewrite passes if every stored error is fixed, even if the wording differs from `corrected_text`. Do not call `search_sentences` again; use the data from turn 1.
+5. **Compare each rewrite** with the stored `corrected_text` and `errors` of that sentence. A rewrite passes if every stored error is fixed, even if the wording differs from `corrected_text`. Ignore capitalization: compare case-insensitively, and treat a stored `capitalization` error (from older records) as already fixed. Do not call `search_sentences` again; use the data from turn 1.
 
 6. **Reply** in 繁體中文:
 

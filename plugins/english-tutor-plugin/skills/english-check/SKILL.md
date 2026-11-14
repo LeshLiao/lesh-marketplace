@@ -26,9 +26,10 @@ then reply in the fixed format below. Follow the steps in order. Do not skip ste
      - **Reuse an existing name** from step 1 whenever one fits, even if you would have phrased it differently. Never create a synonym of an existing type (`verb tense` when `tense` exists, `vocabulary` when `word choice` exists).
      - Only when nothing fits, create a new name: lowercase, short, singular noun phrase, no punctuation except hyphens or spaces. Also pass `description` (one line) so the category is documented.
      - Suggested starter names when the list is empty or nothing fits:
-       `tense`, `article`, `preposition`, `subject-verb agreement`, `word order`, `word choice`, `plural`, `spelling`, `capitalization`, `punctuation`, `missing word`, `extra word`, `pronoun`, `comparative`, `countable noun`.
+       `tense`, `article`, `preposition`, `subject-verb agreement`, `word order`, `word choice`, `plural`, `spelling`, `punctuation`, `missing word`, `extra word`, `pronoun`, `comparative`, `countable noun`.
    - One mistake = one error item. A sentence can have several.
    - Only flag real errors. Do not rewrite style, register, or wording that is already acceptable.
+   - **Ignore capitalization completely.** Never report a capitalization error or use the `capitalization` category (even though it exists in `list_error_types` from older records), and keep the user's letter case unchanged in `corrected_text`: a lowercase `i`, a lowercase sentence start, or a lowercase proper noun is not a mistake.
    - Decide the full `corrected_text`: the whole sentence with every fix applied, nothing else changed.
 
 3. **Call `save_sentence`** with:

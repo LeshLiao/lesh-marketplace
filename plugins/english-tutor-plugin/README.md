@@ -40,6 +40,8 @@ claude plugin update english-tutor-plugin@lesh-marketplace
 | `/english-tutor-plugin:english-stats [period]` | Calls `get_error_stats` (optionally for "this week", "last 30 days", …) and shows a table of error types, counts and one latest example each, plus a one-line focus suggestion. |
 | `/english-tutor-plugin:english-review [error_type] [count]` | Calls `search_sentences`, shows a few past wrong sentences for the user to rewrite, then grades the rewrites against the stored corrections. |
 
+Checking rules shared by the hook and the skills: only real grammar, spelling, word-choice and punctuation mistakes are reported; **capitalization is never checked** (lowercase `i` or a lowercase sentence start is left as-is and not counted as an error).
+
 MCP tools used (all prefixed `mcp__plugin_english-tutor-plugin_english-practice__`): `list_error_types`, `save_sentence`, `get_error_stats`, `search_sentences`, `get_recent_mistakes`. `dismiss_sentence` is called directly when the user says a record was a false positive; no skill is needed.
 
 ## Layout

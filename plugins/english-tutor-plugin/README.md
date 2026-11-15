@@ -40,7 +40,7 @@ claude plugin update english-tutor-plugin@lesh-marketplace
 | `/english-tutor-plugin:english-stats [period]` | Calls `get_error_stats` (optionally for "this week", "last 30 days", …) and shows a table of error types, counts and one latest example each, plus a one-line focus suggestion. |
 | `/english-tutor-plugin:english-review [error_type] [count]` | Calls `search_sentences`, shows a few past wrong sentences for the user to rewrite, then grades the rewrites against the stored corrections. |
 
-Checking rules shared by the hook and the skills: only real grammar, spelling, word-choice and punctuation mistakes are reported; **capitalization is never checked** (lowercase `i` or a lowercase sentence start is left as-is and not counted as an error).
+Checking rules shared by the hook and the skills: only real grammar, spelling and word-choice mistakes are reported; **capitalization is never checked** (lowercase `i` or a lowercase sentence start is left as-is and not counted as an error). **The hook also never checks punctuation** (a missing comma or final period is left as-is); the `english-check` skill still reports punctuation mistakes.
 
 MCP tools used (all prefixed `mcp__plugin_english-tutor-plugin_english-practice__`): `list_error_types`, `save_sentence`, `get_error_stats`, `search_sentences`, `get_recent_mistakes`. `dismiss_sentence` is called directly when the user says a record was a false positive; no skill is needed.
 
@@ -62,6 +62,9 @@ english-tutor-plugin/
 
 ## Changelog
 
+- **1.2.3** (2026-11-15): the `UserPromptSubmit` hook no longer checks punctuation (only grammar, spelling and word choice).
+- **1.2.2** (2026-11-15): hook prompt and `english-check` never flag capitalization; `english-review` grades rewrites case-insensitively.
+- **1.2.1** (2026-11-08): point the `english-practice` MCP connection at the new Tokyo Lightsail IP.
 - **1.2.0** (2026-11-02): ship the `english-practice` MCP connection (`.mcp.json`, HTTP to Lightsail, key via `${ENGLISH_PRACTICE_API_KEY}`) and the `UserPromptSubmit` hook; skills switch to the plugin-prefixed tool names.
 - **1.1.0** (2026-11-02): `english-check` now calls `get_recent_mistakes` and flags repeated error types; new skills `english-stats` and `english-review`. Requires the step-07 MCP tools.
 - **1.0.0** (2026-11-02): initial release with `english-check` (moved out of the english-tutor repo's `.claude/skills/`).

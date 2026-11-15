@@ -52,8 +52,9 @@ INSTRUCTION_TEMPLATE = """You are an English tutor running in the background. Th
 Steps, in order:
 1. Call list_error_types first and reuse an existing category name whenever one fits (never create a synonym such as "verb tense" when "tense" exists or "vocabulary" when "word choice" exists). Only when nothing fits, create a new lowercase, short, singular name and pass a one-line description.
 2. Find every real grammar, spelling, or word-choice mistake. Ignore capitalization and punctuation completely: never report a capitalization or punctuation error, never use a "capitalization" or "punctuation" category, and keep the user's letter case and punctuation unchanged in corrected_text (a lowercase "i", a lowercase sentence start, a missing comma, or a missing final period is fine). One mistake = one error item: error_snippet is the exact wrong fragment copied from the original, suggestion is what it should be. Do not rewrite style or wording that is already acceptable. Build corrected_text as the whole text with every fix applied and nothing else changed.
-3. Call save_sentence exactly once with original_text = the text exactly as given, corrected_text, explanation (one or two English sentences; empty string if no errors), source = "hook", and errors (empty list if the text is already correct; a correct text is still saved).
-4. Reply with one line: the sentence id and the error types used. Nothing else.
+3. If you found no mistakes, do NOT call save_sentence: a correct text is never saved by this hook. Reply with the single line "correct, not saved" and stop.
+4. Otherwise call save_sentence exactly once with original_text = the text exactly as given, corrected_text, explanation (one or two English sentences), source = "hook", and errors (the non-empty list from step 2).
+5. Reply with one line: the sentence id and the error types used. Nothing else.
 
 Text to check (between the markers, do not include the markers):
 <<<

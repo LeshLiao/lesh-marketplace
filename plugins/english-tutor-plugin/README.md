@@ -23,7 +23,7 @@ If you still have a project-level `english-practice` server registered (`claude 
 
 ## Hook
 
-`hooks/hooks.json` registers `hooks/check_english.py` on `UserPromptSubmit`. For every prompt that looks like an English sentence (4–300 words, no CJK, no code, no secrets, not a `/` or `!` command) it spawns a background `claude -p` that checks the sentence and saves it with `source = hook`, and prints a one-line `✨ English hook: analysing in background: …` notice. Logs go to `~/.claude/english-tutor-hook/logs/` (override with `ENGLISH_HOOK_LOG_DIR`). It never blocks the conversation.
+`hooks/hooks.json` registers `hooks/check_english.py` on `UserPromptSubmit`. For every prompt that looks like an English sentence (4–300 words, no CJK, no code, no secrets, not a `/` or `!` command) it spawns a background `claude -p` that checks the sentence and saves it with `source = hook` **only when it contains at least one mistake** (correct sentences are not saved by the hook; the `english-check` skill still saves them), and prints a one-line `✨ English hook: analysing in background: …` notice. Logs go to `~/.claude/english-tutor-hook/logs/` (override with `ENGLISH_HOOK_LOG_DIR`). It never blocks the conversation.
 
 ## Update
 
@@ -62,6 +62,7 @@ english-tutor-plugin/
 
 ## Changelog
 
+- **1.2.4** (2026-11-15): the `UserPromptSubmit` hook no longer saves correct sentences; only sentences with at least one mistake are stored.
 - **1.2.3** (2026-11-15): the `UserPromptSubmit` hook no longer checks punctuation (only grammar, spelling and word choice).
 - **1.2.2** (2026-11-15): hook prompt and `english-check` never flag capitalization; `english-review` grades rewrites case-insensitively.
 - **1.2.1** (2026-11-08): point the `english-practice` MCP connection at the new Tokyo Lightsail IP.

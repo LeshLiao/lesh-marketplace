@@ -5,7 +5,7 @@ Plugins:
 | Plugin | Current version |
 |---|---|
 | lesh-common-plugin | **1.6.0** |
-| english-tutor-plugin | **1.2.3** |
+| english-tutor-plugin | **1.2.4** |
 
 ## Install plugin
 
